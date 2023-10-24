@@ -1,6 +1,5 @@
 #include <iostream>
 
-// Structure pour les éléments de la liste
 struct Element {
     int valeur;
     Element* suivant;
@@ -9,19 +8,17 @@ struct Element {
 
 class Liste {
 private:
-    Element* premier; // Pointeur vers le premier élément de la liste
+    Element* premier; // Pointeur vers le premier Ã©lÃ©ment de la liste
 
 public:
     Liste() : premier(nullptr) {}
 
-    // Méthode pour ajouter un élément au début de la liste
     void AjouterAuDebut(int val) {
         Element* nouvelElement = new Element(val);
         nouvelElement->suivant = premier;
         premier = nouvelElement;
     }
 
-    // Méthode pour supprimer un élément du début de la liste
     void SupprimerDuDebut() {
         if (premier != nullptr) {
             Element* temp = premier;
@@ -30,7 +27,6 @@ public:
         }
     }
 
-    // Méthode pour afficher la liste en entier
     void AfficherListe() {
         Element* actuel = premier;
         while (actuel != nullptr) {
@@ -40,7 +36,6 @@ public:
         std::cout << std::endl;
     }
 
-    // Destructeur pour éviter les fuites mémoire
     ~Liste() {
         while (premier != nullptr) {
             Element* temp = premier;
